@@ -5,12 +5,12 @@ client = OpenAI(api_key=API_KEY)
 def get_response(user_input):
     
     if user_input == "start":
-        return "Okie dokie, starting game!"
+        prompt = "Come up with a scenario to for a group of fantasy roleplay party members involving them confronting a troll. "
+    else:
+        prompt = "You are a troll who speaks in very easy terms, along with grunts, gargles and roars. A brave adventurer says the following: " + user_input
     
-
-    total_input = "You are a troll who speaks in very easy terms, along with grunts, gargles and roars. A brave adventurer says the following: " + user_input
     response = client.responses.create(
         model="gpt-4.1",
-        input=total_input
+        input=prompt
     )
     return response.output_text
