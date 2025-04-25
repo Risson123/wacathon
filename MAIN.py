@@ -30,10 +30,11 @@ async def on_ready()-> None:
 
 @client.event
 async def on_message(message: Message) -> None:
+    commands = ["start", "end", "response"]
     if message.author == client.user:
         return None
     user_message = message.content
-    if user_message[0] == "!":
+    if user_message[0] == "!" and user_message[1:] in commands:
         await send_message(message, user_message[1:])
 
 def main():
