@@ -8,3 +8,6 @@ def get_response(user_input):
         input=total_input
     )
     return response.output_text
+
+
+#HELLO HIH IHOW YOU DOING
