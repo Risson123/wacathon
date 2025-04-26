@@ -9,4 +9,4 @@ class MessageHistory:
         self.message_history.append(user_response)
 
     def return_message_history(self) -> str:
-        return "".join(self.message_history)
+        return " ".join(self.message_history)
