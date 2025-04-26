@@ -42,7 +42,7 @@ async def on_message(message: Message) -> None:
         await send_message(message, user_message[1:])
     elif user_message[0] == "!" and mess_hist.prompt != None:
         mess_hist.add_response(user_message[1:])
-        await message.channel.send("Response recorded")
+        await message.channel.send(f"{message.author}'s fate is being decided . . .")
 
 def main():
     client.run(token=TOKEN)
