@@ -15,7 +15,7 @@ def get_response(user_input, messageHistory: MessageHistory):
         return response.output_text
     elif user_input.startswith("response"):
         return messageHistory.return_message_history()
-    elif user_input == "end":
+    elif user_input == "end" and messageHistory.prompt != None:
         prompt = "You are in the following scenario: " + messageHistory.prompt + "\nCreate an outcome within 1000 characters if the players take the following actions: " + messageHistory.return_message_history()
         messageHistory.clear_history()
         response = client.responses.create(
@@ -23,6 +23,4 @@ def get_response(user_input, messageHistory: MessageHistory):
             input=prompt
         )
         return response.output_text
-    
-
-    raise ValueError
+    return
