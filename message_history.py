@@ -1,9 +1,10 @@
 class MessageHistory:
     def __init__(self):
         self.message_history = []
+        self.prompt = None
     
     def add_prompt(self, gpt_prompt:str) -> None:
-        self.message_history.append(gpt_prompt)
+        self.prompt = gpt_prompt
 
     def add_response(self, user_response:str ) -> None:
         self.message_history.append(user_response)

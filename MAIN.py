@@ -39,6 +39,8 @@ async def on_message(message: Message) -> None:
     user_message = message.content
     if user_message[0] == "!" and user_message[1:] in commands:
         await send_message(message, user_message[1:])
+    elif user_message[0] == "!":
+        mess_hist.add_response(message.content)
 
 def main():
     client.run(token=TOKEN)
