@@ -14,8 +14,11 @@ class MessageHistory:
 
     def return_message_history(self) -> str:
         ret = ""
+        responders = []
         for message in self.message_history:
-            ret += f"{message.author}'s response was to {message.content.replace("!response", "")} \n"
+            if message.author not in responders:
+                ret += f"{message.author}'s response was to {message.content.replace("!response", "")} \n"
+                responders.append(message.author)
         return ret
             
 
