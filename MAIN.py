@@ -34,10 +34,11 @@ async def on_ready()-> None:
 @client.event
 async def on_message(message: Message) -> None:
     commands = ["start", "end", "response"]
-    if message.author == client.user:
+    # Prevents the bot triggering itself
+    if message.author == client.user: 
         return None
     user_message = message.content
-    if user_message[0] == "!" and user_message[1:] in commands:
+    if user_message[0] == "!":
         await send_message(message, user_message[1:])
     elif user_message[0] == "!":
         mess_hist.add_response(message.content)
