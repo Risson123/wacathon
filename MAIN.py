@@ -23,7 +23,6 @@ async def send_message(message: Message, user_message: str) -> None:
         user_message = user_message[1:]
     try:
         response: str = get_response(user_message, mess_hist)
-        print(mess_hist.return_message_history())
         await message.author.send(response) if is_private else await message.channel.send(response)
     except Exception as e:
         print(e)
@@ -34,17 +33,16 @@ async def on_ready()-> None:
 
 @client.event
 async def on_message(message: Message) -> None:
-    commands = ["start", "end", "response", "help"]
+    commands = ["start", "end", "response"]
     # Prevents the bot triggering itself
     if message.author == client.user: 
         return None
     user_message = message.content
     if user_message[0] == "!" and user_message[1:] in commands:
-        await message.channel.send("One moment, running that command!")
         await send_message(message, user_message[1:])
     elif user_message[0] == "!" and mess_hist.prompt != None:
-        mess_hist.add_response(message)
-        await message.channel.send("Response recorded")
+        mess_hist.add_response(user_message[1:])
+        await message.channel.send(f"{message.author}'s fate is being decided . . .")
 
 def main():
     client.run(token=TOKEN)
