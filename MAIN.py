@@ -40,6 +40,7 @@ async def on_message(message: Message) -> None:
         return None
     user_message = message.content
     if user_message[0] == "!" and user_message[1:] in commands:
+        await message.channel.send("One moment, running that command!")
         await send_message(message, user_message[1:])
     elif user_message[0] == "!" and mess_hist.prompt != None:
         mess_hist.add_response(message)
