@@ -49,5 +49,8 @@ def get_response(user_input, messageHistory: MessageHistory):
         )
         return response.output_text
     
+    elif user_input == "help":
+        return "Commands List: !start, !response, !end"
+    
 
     return response.output_text

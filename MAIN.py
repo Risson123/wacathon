@@ -34,7 +34,7 @@ async def on_ready()-> None:
 
 @client.event
 async def on_message(message: Message) -> None:
-    commands = ["start", "end", "response"]
+    commands = ["start", "end", "response", "help"]
     # Prevents the bot triggering itself
     if message.author == client.user: 
         return None
