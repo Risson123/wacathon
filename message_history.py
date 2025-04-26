@@ -10,12 +10,15 @@ class MessageHistory:
 
     def add_response(self, user_response:Message ) -> None:
     # ADDS THE RESPONSE TO SELF.MESSAGE_HISTORY
-        self.message_history.append(user_response.content)
+        self.message_history.append(user_response)
 
     def return_message_history(self) -> str:
         ret = ""
+        responders = []
         for message in self.message_history:
-            ret += f"{message.author}'s response was to {message.content.replace("!response", "")}"
+            if message.author not in responders:
+                ret += f"{message.author}'s response was to {message.content.replace("!response", "")} \n"
+                responders.append(message.author)
         return ret
             
 
