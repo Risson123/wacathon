@@ -2,8 +2,7 @@ from discord import Message
 class MessageHistory:
     def __init__(self):
         self.clear_history()
-        self.prompt = ""
-        self.message_history: list[Message] = []
+        
     def add_prompt(self, gpt_prompt:str) -> None:
     # SETS THE PROMPT FOR THE CURRENT MESSAGE HISTORY
         self.prompt = gpt_prompt
