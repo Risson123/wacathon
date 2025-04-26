@@ -12,7 +12,7 @@ def get_response(user_input, messageHistory: MessageHistory):
             input=prompt
         )
         messageHistory.add_prompt(response.output_text)
-        return response.output_text
+        return "Hello, Adventurers! Your party's scenario is: \n" + response.output_text
     
     elif user_input.startswith("response"):
         return messageHistory.return_message_history()
