@@ -25,4 +25,4 @@ def get_response(user_input, messageHistory: MessageHistory):
         return response.output_text
     
 
-    return response.output_text
+    raise ValueError
