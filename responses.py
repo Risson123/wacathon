@@ -17,6 +17,7 @@ def get_response(user_input, messageHistory: MessageHistory):
         return messageHistory.return_message_history()
     elif user_input == "end":
         prompt = "You are in the following scenario: " + messageHistory.prompt + "\nCreate an outcome within 1000 characters if the players take the following actions: " + messageHistory.return_message_history()
+        messageHistory.clear_history()
         response = client.responses.create(
             model="gpt-4.1",
             input=prompt
