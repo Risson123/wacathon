@@ -14,10 +14,22 @@ def get_response(user_input, messageHistory: MessageHistory):
             "vampire",
             "werewolf",
             "riddle sphinx",
-            "scarecrow"
-        ]
+            "scarecrow",
+            "dragon",
+            "frost giant",
+            "earth giant",
+            "fire giant",
+            "kraken",
+            "giant",
+            "witch",
+            "Medusa",
+            "demon lord",
+            "cave golem",
+            "plague walker",
+            "zombie hivemind"
+            ]
         villain = choice(villains)
-        prompt = "Come up with a brief, two-sentence scenario to for a group of fantasy roleplay party members involving them confronting a " + villain + ". Be creative."
+        prompt = "Come up with a brief scenario within 500 characters to for a group of fantasy roleplay party members involving them confronting a " + villain + ". Be creative. Include the ability to resolve the conflict in a variety of ways. Each user may only provide one action before the game is over."
         response = client.responses.create(
             model="gpt-4.1",
             input=prompt
